@@ -1,0 +1,14 @@
+# Импорт вычисления корня
+from math import sqrt
+
+# Координаты игрока и поселения
+x1 = float(input())
+y1 = float(input())
+x2 = float(input())
+y2 = float(input())
+
+# Формула расчета расстояния
+distance = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2))
+
+print(f'=== Я свободен! ===\n')
+print(f'Расстояние между мной ({x1}; {y1}) и ближайшим поселением ({x2}; {y2}) составляет {round(distance, 2)} точек')
