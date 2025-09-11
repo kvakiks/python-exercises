@@ -1,0 +1,9 @@
+# Создаем персонажа
+name, hero_class = input(), input()
+health, armor = int(input()), int(input())
+damage = float(input())
+
+print('=== Создание героя ===\n')
+
+print(f'Имя: {name}\nКласс: {hero_class}')
+print(f'Здоровье: {health}, Броня: {armor}, Урон: {damage}')
