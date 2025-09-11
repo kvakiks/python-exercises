@@ -1,4 +1,4 @@
-# Данные по количеству монет
+# Константы для обмена
 copper_coins = int(input())
 copper = 1
 cop_per_silver = 28
