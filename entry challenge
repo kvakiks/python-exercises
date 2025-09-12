@@ -1,0 +1,8 @@
+# Запрос количества требуемых монет для входа
+gold_required, silver_required, copper_required = int(input()), int(input()), int(input())
+
+# Сравнение хватает ли нам на вход
+has_enough = gold_coins >= gold_required and silver_coins >= silver_required and remainder_copper_coin >= copper_required
+
+print(f'=== Дай грош – не отгребёшь ===\n')
+print(f'Требуемая сумма: Золотые: {gold_required}, Серебряные: {silver_required}, Медные: {copper_required}\nСредств хватает: {has_enough}')
