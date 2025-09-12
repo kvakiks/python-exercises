@@ -1,0 +1,20 @@
+new_name = input()
+
+copper_from_stem = max(profit1, profit2, profit3) # Кол-во меди после продажи травы
+profit_gold = copper_from_stem // cop_per_gold # Обмен меди на золото
+all_gold = gold_coins + profit_gold # Все золото
+new_gold_coins = all_gold - gold_required # Золото после платы за вход
+
+profit_silver = (copper_from_stem - profit_gold * cop_per_gold) // cop_per_silver # Обмен оставш меди на серебро
+all_silver = silver_coins + profit_silver # Все серебро
+new_silver_coins = all_silver - silver_required # Серебро после платы за вход
+
+profit_copper = copper_from_stem - (profit_gold * cop_per_gold) - (profit_silver * cop_per_silver) # Остаток меди от травы
+all_copper = remainder_copper_coin + profit_copper # Вся медь
+new_copper_coins = all_copper - copper_required # Медь после платы за вход
+
+# Итоговый вес инвентаря
+finally_weight = new_gold_coins * gold_weight + new_silver_coins * silver_weight + new_copper_coins * copper_weight
+
+print(f'=== Итог приключения ===\n')
+print(f'Новое имя героя: {new_name}\nОставшееся здоровье: {round(health, 1)}\nЗолотые: {new_gold_coins}, Серебряные: {new_silver_coins}, Медные: {new_copper_coins}\nОбщий вес инвентаря: {round(finally_weight, 2)} единиц')
