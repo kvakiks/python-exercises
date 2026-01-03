@@ -1,39 +1,63 @@
 from random import randint
 
-# Генерируем число и счетчик для попыток
-number = randint(1, 100)
-attempts = 0
-
-print("Добро пожаловать в числовую угадайку! Let's fun!")
-
-# Защита от дурака: проверка числа на корректность
-def is_valid(text):
-    return 0 <= int(text) <= 100
-
 while True:
-    print("Введите число от 1 до 100:")
-    num = input()
+    flag = True
 
-    if is_valid(num):
-        num = int(num)
-        if num == number:
-            attempts += 1
-            print(f"Вы угадали! Congratulations!\nКоличество попыток угадать число: {attempts}")
-            print("Сыграем еще разок? д - да, н - нет")
-            answer = input()
-            if answer.lower() == "д":
-                continue
-            elif answer.lower() == 'н':
-                print("Спасибо, что играли в угадайку! До скорых встреч...")
-                break
-            else:
-                print("Извините, не понял вас. Тогда продолжаем игру!")
-        elif num < number:
-            attempts += 1
-            print("Ваше число меньше загаданного, попробуйте еще разок!")
-        elif num > number:
-            attempts += 1
-            print("Ваше число больше загаданного, попробуйте еще разок!")
+    print("Добро пожаловать в числовую угадайку!")
+    print("Введите предельное число, чтобы я загадал случайное:")
 
-    else:
-        print("А может быть все-таки введем целое число от 1 до 100?")
+    while True:
+        border = input()
+        if border.isdigit():
+            border = int(border)
+
+            # Генерируем число
+            number = randint(1, border)
+            break
+        else:
+            print("Должно быть число.")
+            continue
+
+
+    # Защита от дурака: проверка числа на корректность
+    def is_valid(text):
+        if not text.isdigit():
+            return False
+        return 0 <= int(text) <= border
+
+
+    #  Счетчик для попыток
+    attempts = 0
+
+    while True:
+        print(f"Введите число от 1 до {border}:")
+        num = input()
+
+        if is_valid(num):
+            num = int(num)
+            if number == num:
+                attempts += 1
+                print(f"Вы угадали! Congratulations!\nКоличество попыток угадать число: {attempts}")
+                print("Сыграем еще разок? д - да, н - нет")
+                answer = input()
+                if answer.lower() == "д":
+                    break
+                elif answer.lower() == 'н':
+                    print("Спасибо, что играли в угадайку! До скорых встреч...")
+                    flag = False
+                    break
+                else:
+                    print("Извините, не понял вас. Тогда продолжаем игру!")
+                    break
+            elif num < number:
+                attempts += 1
+                print("Больше.")
+            elif num > number:
+                attempts += 1
+                print("Меньше.")
+
+        else:
+            print(f"А может быть все-таки введем целое число от 1 до {border}?")
+
+    if not flag:
+        break
