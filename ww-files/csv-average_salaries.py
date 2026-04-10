@@ -21,3 +21,4 @@ with open('salary_data.csv', encoding='utf-8') as file:
     print(*result, sep='\n')
 
     '''Calculating a top of average salaries in different companies in ASC'''
+    

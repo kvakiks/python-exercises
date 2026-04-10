@@ -10,3 +10,4 @@ with open('titanic.csv', encoding='utf-8') as file:
 
     print(*male, sep='\n')
     print(*female, sep='\n')
+    
