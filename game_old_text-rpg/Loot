@@ -1,0 +1,21 @@
+# Константы для обмена
+copper_coins = int(input())
+copper = 1
+cop_per_silver = 28
+cop_per_gold = 336
+
+# Вес монет
+copper_weight = 25.6
+silver_weight = 16.40
+gold_weight = 31.103
+
+# Расчеты по монетам после обмена
+total_weight_before = copper_coins * copper_weight
+gold_coins = copper_coins // cop_per_gold
+silver_coins = (copper_coins - (gold_coins * cop_per_gold)) // cop_per_silver
+remainder_copper_coin = copper_coins - (gold_coins * cop_per_gold) - (silver_coins * cop_per_silver)
+
+total_weight_after = gold_coins * gold_weight + silver_coins * silver_weight + remainder_copper_coin * copper_weight
+
+print(f'=== Лут ===\n')
+print(f'Вес до обмена: {round(total_weight_before, 2)}\nЗолото: {gold_coins}, Серебро: {silver_coins}, Медь: {remainder_copper_coin}\nВес после обмена: {round(total_weight_after, 2)}')

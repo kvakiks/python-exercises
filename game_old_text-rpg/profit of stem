@@ -1,0 +1,11 @@
+quantity_stem1, price_stem1 = int(input()), int(input())
+quantity_stem2, price_stem2 = int(input()), int(input())
+quantity_stem3, price_stem3 = int(input()), int(input())
+
+# Расчет прибыли за собранную траву
+profit1 = quantity_stem1 * price_stem1
+profit2 = quantity_stem2 * price_stem2
+profit3 = quantity_stem3 * price_stem3
+
+print(f'=== Травушки-муравушки ===\n')
+print(f'Ожидаемая прибыль: {max(profit1, profit2, profit3)} медяков')

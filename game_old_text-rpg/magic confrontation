@@ -1,0 +1,17 @@
+# Создаем стражника
+health_guard, armor_guard = int(input()), int(input())
+damage_guard = float(input())
+
+# Рассчитываем урон стражника и героя
+hero_attack = (damage * 1.5) - armor_guard
+guard_attack = (damage_guard * 1.2) - armor
+
+# Значения hp после урона
+health_guard -= hero_attack
+health -= guard_attack
+
+print('=== Магическое противостояние ===\n')
+
+print(f'Зизифус использовал магическую атаку и нанёс стражнику {round(hero_attack, 1)} урона!')
+print(f'Здоровье стражника теперь: {round(health_guard, 1)}\nСтражник атаковал героя и нанёс {round(guard_attack, 1)} урона!')
+print(f'Здоровье героя теперь: {round(health, 1)}')
